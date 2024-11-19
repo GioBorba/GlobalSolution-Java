@@ -20,6 +20,6 @@ public class Alerta {
 
     @Column(name = "mensagem", nullable = false)
     @NotBlank(message = "Mensagem não pode ser vazia")
-    private String mensagem;  // A mensagem do alerta
+    private String mensagem;  // A mensagem do alerta. ex.: "Seu consumo energético está acima do esperado. Tente (determinadas ações) para evitar mais gastos."
 
 }

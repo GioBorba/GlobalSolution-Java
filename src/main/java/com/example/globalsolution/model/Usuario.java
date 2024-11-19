@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "T_GS_USUARIO")
@@ -31,5 +33,8 @@ public class Usuario {
 
     @Column(name = "unidade")
     private String unidade; // Exemplo: 'Apartamento 103'
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Lembrete> lembretes;  // Lista de lembretes associados a este usuário
 
 }
