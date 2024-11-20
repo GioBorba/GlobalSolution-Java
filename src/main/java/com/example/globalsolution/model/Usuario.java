@@ -37,4 +37,8 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Lembrete> lembretes;  // Lista de lembretes associados a este usuário
 
+    @OneToMany(mappedBy = "usuario")
+    private List<ControleEnergetico> consumosEnergeticos;  // Lista de consumos energéticos do usuário
+
+
 }
