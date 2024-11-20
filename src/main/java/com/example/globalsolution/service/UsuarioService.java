@@ -77,6 +77,7 @@ public class UsuarioService {
     // Deleta usuario
     public void deleteUser(Long id) {
         Usuario usuario = getUserById(id);
+
         usuarioRepository.delete(usuario);
     }
 
