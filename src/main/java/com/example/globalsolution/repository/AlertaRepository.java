@@ -11,5 +11,5 @@ import java.util.List;
 public interface AlertaRepository extends JpaRepository<Alerta, Long> {
 
     // Busca alertas relacionados a um usuário
-    List<Alerta> findByUsuario(Usuario usuario);
+    List<Alerta> findByUsuarioId(Long usuarioId);
 }

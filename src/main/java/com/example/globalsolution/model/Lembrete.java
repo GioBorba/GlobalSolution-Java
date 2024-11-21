@@ -1,5 +1,6 @@
 package com.example.globalsolution.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -21,6 +22,7 @@ public class Lembrete {
     private LocalDateTime horario;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario; // Um usuario pode estar atrelado a varios lembretes
 

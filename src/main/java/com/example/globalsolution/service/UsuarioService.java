@@ -6,7 +6,6 @@ import com.example.globalsolution.DTO.UsuarioDTO;
 import com.example.globalsolution.repository.ControleEnergeticoRepository;
 import com.example.globalsolution.repository.UsuarioRepository;
 
-import com.example.globalsolution.util.ConsumoEnergeticoGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,9 +23,6 @@ public class UsuarioService {
     @Autowired
     private ControleEnergeticoRepository consumoRepository;
 
-    @Autowired
-    private ConsumoEnergeticoGenerator consumoGenerator;
-
     // Cria novo usuario
     public Usuario createUser(Usuario usuario) {
         // Verifica se o e-mail já está cadastrado
@@ -36,12 +32,6 @@ public class UsuarioService {
 
         // Salva o usuário no banco de dados
         Usuario savedUser = usuarioRepository.save(usuario);
-
-        // Gera um consumo aleatório para o usuário criado
-        ControleEnergetico consumo = consumoGenerator.generateRandomConsumo(savedUser);
-
-        // Salva o consumo gerado no banco de dados
-        consumoRepository.save(consumo);
 
         return savedUser;
     }

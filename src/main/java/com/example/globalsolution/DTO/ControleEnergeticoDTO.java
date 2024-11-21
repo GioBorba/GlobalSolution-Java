@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Data
 public class ControleEnergeticoDTO {
     private Long id;
-    private Usuario usuario;
+    private Long usuarioId;
     private Double consumo;
     private LocalDateTime dataRegistro;
 }

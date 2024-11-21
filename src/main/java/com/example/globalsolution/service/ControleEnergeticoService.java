@@ -75,7 +75,7 @@ public class ControleEnergeticoService {
     private ControleEnergeticoDTO convertToDTO(ControleEnergetico controleEnergetico) {
         ControleEnergeticoDTO dto = new ControleEnergeticoDTO();
         dto.setId(controleEnergetico.getId());
-        dto.setUsuario(controleEnergetico.getUsuario());
+        dto.setUsuarioId(controleEnergetico.getUsuario().getId());
         dto.setConsumo(controleEnergetico.getConsumo());
         dto.setDataRegistro(controleEnergetico.getDataRegistro());
         return dto;

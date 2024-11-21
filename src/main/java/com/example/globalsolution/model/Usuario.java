@@ -1,5 +1,6 @@
 package com.example.globalsolution.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -34,6 +35,7 @@ public class Usuario {
     @Column(name = "unidade")
     private String unidade; // Exemplo: 'Apartamento 103'
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "usuario")
     private List<Lembrete> lembretes;  // Lista de lembretes associados a este usuário
 

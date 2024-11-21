@@ -39,7 +39,7 @@ public class ControleEnergeticoController {
         ControleEnergetico controleEnergetico = controleEnergeticoService.createControleEnergetico(usuarioId, dto);
         ControleEnergeticoDTO controleEnergeticoDTO = new ControleEnergeticoDTO();
         controleEnergeticoDTO.setId(controleEnergetico.getId());
-        controleEnergeticoDTO.setUsuario(controleEnergetico.getUsuario());
+        controleEnergeticoDTO.setUsuarioId(controleEnergetico.getUsuario().getId());
         controleEnergeticoDTO.setConsumo(controleEnergetico.getConsumo());
         controleEnergeticoDTO.setDataRegistro(controleEnergetico.getDataRegistro());
 
@@ -89,7 +89,7 @@ public class ControleEnergeticoController {
         ControleEnergetico controleEnergetico = controleEnergeticoService.updateControleEnergetico(id, dto);
         ControleEnergeticoDTO controleEnergeticoDTO = new ControleEnergeticoDTO();
         controleEnergeticoDTO.setId(controleEnergetico.getId());
-        controleEnergeticoDTO.setUsuario(controleEnergetico.getUsuario());
+        controleEnergeticoDTO.setUsuarioId(controleEnergetico.getUsuario().getId());
         controleEnergeticoDTO.setConsumo(controleEnergetico.getConsumo());
         controleEnergeticoDTO.setDataRegistro(controleEnergetico.getDataRegistro());
 

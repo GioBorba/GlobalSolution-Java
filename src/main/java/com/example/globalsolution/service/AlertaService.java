@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -27,17 +28,13 @@ public class AlertaService {
 
     // Método para gerar alerta baseado no consumo do usuário
     public Alerta gerarAlerta(Usuario usuario, double consumoAtual) {
-        double mediaBrasileira = 300.0;  // Exemplo da média do consumo de energia
+        double mediaBrasileira = 300.0; // Exemplo de média de consumo
 
-        // Verifica se o consumo do usuário está acima da média
+        // Verifica se o consumo está acima da média
         if (consumoAtual > mediaBrasileira) {
-            // Gera a mensagem de alerta
+            // Cria a mensagem de alerta com uma dica aleatória
             String mensagem = "Seu consumo energético está acima do esperado. Tente reduzir seus gastos.";
-
-            // Escolhe uma dica aleatória da lista predefinida
             String dicaEscolhida = DICAS.get(new Random().nextInt(DICAS.size()));
-
-            // Complementa a mensagem com a dica escolhida
             mensagem += " Dica: " + dicaEscolhida;
 
             // Cria o alerta
@@ -48,11 +45,23 @@ public class AlertaService {
             // Salva o alerta no banco de dados
             return alertaRepository.save(alerta);
         }
-        return null;  // Se o consumo não estiver acima da média, não gera alerta
+        return null; // Não gera alerta se o consumo não estiver acima da média
     }
 
     // Método para obter todos os alertas
     public List<Alerta> getAllAlertas() {
         return alertaRepository.findAll();
     }
+
+    // Método para obter um alerta específico pelo ID
+    public Alerta getAlertaById(Long id) {
+        return alertaRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Alerta não encontrado com ID: " + id));
+    }
+
+  // Método para obter Alertas de um usuario
+    public List<Alerta> getAlertasPorUsuario(Long usuarioId) {
+        return alertaRepository.findByUsuarioId(usuarioId);
+    }
+
 }
