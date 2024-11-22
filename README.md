@@ -38,7 +38,7 @@ Aqui está uma breve descrição das classes principais:
 
 ## Links: 
 - ### Link funcionamento do software: https://www.youtube.com/watch?v=Ed4ilqtHSpI
-- ### Link Vídeo Pitch:
+- ### Link Vídeo Pitch: https://www.youtube.com/watch?v=kfenPoqhcSY
 
 
 ## Aplicação na porta 8080
